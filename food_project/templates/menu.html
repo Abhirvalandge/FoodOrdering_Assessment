@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<div class="tm-container">
+  <div class="tm-main-content">
+    <!-- Coffee Menu -->
+    <section class="tm-section">
+      <h2 class="tm-section-header">Menu List</h2>
+      <div class="tm-responsive-table">
+        {% for menu in data %}
+        <div class="card" style="width: 18rem; margin-left: 25%;">
+          <img src="/media/{{ menu.food_image }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ menu.food_name }}</h5>
+            <h5 class="card-title">Rs.{{ menu.food_price }}</h5>
+            <p class="card-text">{{ menu.food_description|lower }}</p>
+            <a href="/add-to-cart/{{menu.id}}" class="btn btn-primary">Place Order</a>
+          </div>
+        </div><br><br>
+        {% endfor %}
+      </div>
+    </section>
+   </div>
+</div>
+
+{% endblock %}

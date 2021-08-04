@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<div class="tm-container">
+  <div class="tm-text-white tm-page-header-container">
+    <i class="fas fa-mug-hot fa-2x tm-page-icon"></i>
+    <h1 class="tm-page-header">Chilling Cafe :)</h1>
+  </div>
+  <div class="tm-main-content">
+    <div>
+        <img src="{% static 'img\chai-975685_1920.jpg' %}" style="height: 100%; width: 100%;">
+    </div>
+    <!-- Coffee Menu -->
+    <section class="tm-section">
+      <h2 class="tm-section-header">Tea Menu</h2>
+      <div class="tm-responsive-table">
+        <table>
+          <tr class="tm-tr-header">
+            <th>Tea Name</th>
+            <th>Hot</th>
+            <th>Iced</th>
+            <th>Blended</th>
+          </tr>
+          {% for tea in data %}
+             <tr>
+                <th>{{ tea.tea_name }}</th>
+                <th>Rs.{{ tea.hot }}</th>
+                <th>Rs.{{ tea.iced }}</th>
+                <th>Rs.{{ tea.addon }}</th>
+             </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </section>
+   </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+    {% extends 'base2.html' %}
+    {% load static %}
+    {% block body_block %}
+    <div class="tm-container">
+      <div class="tm-main-content">
+        <section style="text-align: center;" class="tm-section">
+            <h1 style="font-size: 30px; color: black;">Sign In</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-lg btn-danger" value="Sign In">
+                <br><p>If you don't have account?<a href="/signup_view">Sign Up</a></p>
+            </form>
+        </section>
+       </div>
+    </div>
+    {% endblock %}
+
+       

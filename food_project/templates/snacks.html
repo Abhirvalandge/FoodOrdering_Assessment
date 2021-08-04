@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<div class="tm-container">
+  <div class="tm-text-white tm-page-header-container">
+    <i class="fas fa-mug-hot fa-2x tm-page-icon"></i>
+    <h1 class="tm-page-header">Chilling Cafe :)</h1>
+  </div>
+  <div class="tm-main-content">
+    <div>
+        <img src="{% static 'img\pizza-3007395_1920.jpg' %}" style="height: 100%; width: 100%;">
+    </div>
+    <!-- Coffee Menu -->
+    <section class="tm-section">
+      <h2 class="tm-section-header">Snacks Menu</h2>
+      <div class="tm-responsive-table">
+        <table>
+          <tr class="tm-tr-header">
+            <th><b>Name</b></th>
+            <th><b>Price</b></th>
+            <th><b>Description</b></th>
+          </tr>
+          {% for snacks in data %}
+             <tr>
+                <th>{{ snacks.snacks_name }}</th>
+                <th>Rs.{{ snacks.price }}</th>
+                <th>{{ snacks.description }}</th>
+             </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </section>
+   </div>
+</div>
+
+{% endblock %}

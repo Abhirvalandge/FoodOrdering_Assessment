@@ -1,0 +1,44 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block body_block %}
+<div class="tm-container">
+  <div class="tm-main-content">
+    <section style="text-align: center;" class="tm-section">
+      <h2 style="color: black;">Your Cart</h2>
+      <div class="tm-responsive-table">
+        {% if cart_items %}
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for cart in cart_items %}
+                <tr>
+                    <td>{{ cart.item.food_name }}</td>
+                    <td>{{ cart.item.food_description }}</td>
+                    <td>{{ cart.item.food_price }}</td>
+                    
+                    <td><a class="btn btn-danger" href="/delete_cart/?id={{ cart.id }}">Delete</a></td>
+                </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+            <a href="/order_view" class="btn btn-primary">Confirm</a>
+        </div>
+        {% else %}
+        <h4 class="text-center">Sorry, Your Cart is Empty....Please add Items!!!</h4>
+        {% endif %}
+    </div>
+      </div>
+    </section>
+   </div>
+</div>
+{% endblock %}
+
